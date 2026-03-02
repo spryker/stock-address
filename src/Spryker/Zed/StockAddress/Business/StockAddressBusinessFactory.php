@@ -26,33 +26,21 @@ use Spryker\Zed\StockAddress\Business\Updater\StockAddressUpdaterInterface;
  */
 class StockAddressBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\StockAddress\Business\Expander\StockCollectionExpanderInterface
-     */
     public function createStockCollectionExpander(): StockCollectionExpanderInterface
     {
         return new StockCollectionExpander($this->getRepository());
     }
 
-    /**
-     * @return \Spryker\Zed\StockAddress\Business\Expander\StockExpanderInterface
-     */
     public function createStockExpander(): StockExpanderInterface
     {
         return new StockExpander($this->getRepository());
     }
 
-    /**
-     * @return \Spryker\Zed\StockAddress\Business\Creator\StockAddressCreatorInterface
-     */
     public function createStockAddressCreator(): StockAddressCreatorInterface
     {
         return new StockAddressCreator($this->getEntityManager());
     }
 
-    /**
-     * @return \Spryker\Zed\StockAddress\Business\Updater\StockAddressUpdaterInterface
-     */
     public function createStockAddressUpdater(): StockAddressUpdaterInterface
     {
         return new StockAddressUpdater(
@@ -62,9 +50,6 @@ class StockAddressBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\StockAddress\Business\Deleter\StockAddressDeleterInterface
-     */
     public function createStockAddressDeleter(): StockAddressDeleterInterface
     {
         return new StockAddressDeleter($this->getEntityManager());

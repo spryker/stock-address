@@ -22,19 +22,11 @@ class StockAddressCreator implements StockAddressCreatorInterface
      */
     protected $stockAddressEntityManager;
 
-    /**
-     * @param \Spryker\Zed\StockAddress\Persistence\StockAddressEntityManagerInterface $stockAddressEntityManager
-     */
     public function __construct(StockAddressEntityManagerInterface $stockAddressEntityManager)
     {
         $this->stockAddressEntityManager = $stockAddressEntityManager;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockResponseTransfer
-     */
     public function createStockAddressForStock(StockTransfer $stockTransfer): StockResponseTransfer
     {
         if (!$stockTransfer->getAddress()) {
@@ -48,11 +40,6 @@ class StockAddressCreator implements StockAddressCreatorInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockResponseTransfer
-     */
     protected function executeCreateStockAddressForStockTransaction(StockTransfer $stockTransfer): StockResponseTransfer
     {
         $stockAddressTransfer = $stockTransfer->getAddressOrFail();
@@ -68,11 +55,6 @@ class StockAddressCreator implements StockAddressCreatorInterface
             ->setIsSuccessful(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockAddressTransfer $stockAddressTransfer
-     *
-     * @return void
-     */
     protected function assertStockAddressTransfer(StockAddressTransfer $stockAddressTransfer): void
     {
         $stockAddressTransfer

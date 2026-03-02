@@ -18,19 +18,11 @@ class StockCollectionExpander implements StockCollectionExpanderInterface
      */
     protected $stockAddressRepository;
 
-    /**
-     * @param \Spryker\Zed\StockAddress\Persistence\StockAddressRepositoryInterface $stockAddressRepository
-     */
     public function __construct(StockAddressRepositoryInterface $stockAddressRepository)
     {
         $this->stockAddressRepository = $stockAddressRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockCollectionTransfer $stockCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockCollectionTransfer
-     */
     public function expandStockCollection(StockCollectionTransfer $stockCollectionTransfer): StockCollectionTransfer
     {
         $stockIds = $this->extractStockIdsFromStockCollectionTransfer($stockCollectionTransfer);

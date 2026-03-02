@@ -11,17 +11,7 @@ use Generated\Shared\Transfer\StockAddressTransfer;
 
 interface StockAddressEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\StockAddressTransfer $stockAddressTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockAddressTransfer
-     */
     public function saveStockAddress(StockAddressTransfer $stockAddressTransfer): StockAddressTransfer;
 
-    /**
-     * @param int $idStock
-     *
-     * @return void
-     */
     public function deleteStockAddressForStock(int $idStock): void;
 }

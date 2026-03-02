@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\StockTransfer;
 
 interface StockExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockTransfer
-     */
     public function expandStockTransfer(StockTransfer $stockTransfer): StockTransfer;
 }

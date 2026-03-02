@@ -16,10 +16,5 @@ interface StockAddressRepositoryInterface
      */
     public function getStockAddressesByStockIds(array $stockIds): array;
 
-    /**
-     * @param int $idStock
-     *
-     * @return bool
-     */
     public function isStockAddressExistsForStock(int $idStock): bool;
 }

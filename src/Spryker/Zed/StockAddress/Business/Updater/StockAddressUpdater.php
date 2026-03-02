@@ -34,11 +34,6 @@ class StockAddressUpdater implements StockAddressUpdaterInterface
      */
     protected $stockAddressDeleter;
 
-    /**
-     * @param \Spryker\Zed\StockAddress\Persistence\StockAddressEntityManagerInterface $stockAddressEntityManager
-     * @param \Spryker\Zed\StockAddress\Persistence\StockAddressRepositoryInterface $stockAddressRepository
-     * @param \Spryker\Zed\StockAddress\Business\Deleter\StockAddressDeleterInterface $stockAddressDeleter
-     */
     public function __construct(
         StockAddressEntityManagerInterface $stockAddressEntityManager,
         StockAddressRepositoryInterface $stockAddressRepository,
@@ -49,11 +44,6 @@ class StockAddressUpdater implements StockAddressUpdaterInterface
         $this->stockAddressDeleter = $stockAddressDeleter;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockResponseTransfer
-     */
     public function updateStockAddressForStock(StockTransfer $stockTransfer): StockResponseTransfer
     {
         if ($stockTransfer->getAddress()) {
@@ -71,11 +61,6 @@ class StockAddressUpdater implements StockAddressUpdaterInterface
             ->setIsSuccessful(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockResponseTransfer
-     */
     protected function executeUpdateStockAddressForStockTransaction(StockTransfer $stockTransfer): StockResponseTransfer
     {
         $stockAddressTransfer = $stockTransfer->getAddressOrFail();
@@ -91,11 +76,6 @@ class StockAddressUpdater implements StockAddressUpdaterInterface
             ->setIsSuccessful(true);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockAddressTransfer $stockAddressTransfer
-     *
-     * @return void
-     */
     protected function assertStockAddressTransfer(StockAddressTransfer $stockAddressTransfer): void
     {
         $stockAddressTransfer

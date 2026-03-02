@@ -21,19 +21,11 @@ class StockAddressDeleter implements StockAddressDeleterInterface
      */
     protected $stockAddressEntityManager;
 
-    /**
-     * @param \Spryker\Zed\StockAddress\Persistence\StockAddressEntityManagerInterface $stockAddressEntityManager
-     */
     public function __construct(StockAddressEntityManagerInterface $stockAddressEntityManager)
     {
         $this->stockAddressEntityManager = $stockAddressEntityManager;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockResponseTransfer
-     */
     public function deleteStockAddressForStock(StockTransfer $stockTransfer): StockResponseTransfer
     {
         return $this->getTransactionHandler()->handleTransaction(function () use ($stockTransfer) {
@@ -41,11 +33,6 @@ class StockAddressDeleter implements StockAddressDeleterInterface
         });
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockResponseTransfer
-     */
     protected function executeDeleteStockAddressForStockTransaction(StockTransfer $stockTransfer): StockResponseTransfer
     {
         $this->stockAddressEntityManager->deleteStockAddressForStock($stockTransfer->getIdStockOrFail());

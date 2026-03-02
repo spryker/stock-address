@@ -15,11 +15,6 @@ use Spryker\Zed\Kernel\Persistence\AbstractEntityManager;
  */
 class StockAddressEntityManager extends AbstractEntityManager implements StockAddressEntityManagerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\StockAddressTransfer $stockAddressTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockAddressTransfer
-     */
     public function saveStockAddress(StockAddressTransfer $stockAddressTransfer): StockAddressTransfer
     {
         $stockAddressMapper = $this->getFactory()->createStockAddressMapper();
@@ -35,11 +30,6 @@ class StockAddressEntityManager extends AbstractEntityManager implements StockAd
         return $stockAddressMapper->mapStockAddressEntityToStockAddressTransfer($stockAddressEntity, $stockAddressTransfer);
     }
 
-    /**
-     * @param int $idStock
-     *
-     * @return void
-     */
     public function deleteStockAddressForStock(int $idStock): void
     {
         $stockAddressEntity = $this->getFactory()

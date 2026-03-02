@@ -18,17 +18,11 @@ use Spryker\Zed\StockAddress\Persistence\Propel\Mapper\StockAddressMapper;
  */
 class StockAddressPersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Orm\Zed\StockAddress\Persistence\SpyStockAddressQuery
-     */
     public function createStockAddressQuery(): SpyStockAddressQuery
     {
         return SpyStockAddressQuery::create();
     }
 
-    /**
-     * @return \Spryker\Zed\StockAddress\Persistence\Propel\Mapper\StockAddressMapper
-     */
     public function createStockAddressMapper(): StockAddressMapper
     {
         return new StockAddressMapper();

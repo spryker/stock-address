@@ -32,12 +32,6 @@ class StockAddressMapper
         return $stockAddressTransfers;
     }
 
-    /**
-     * @param \Orm\Zed\StockAddress\Persistence\SpyStockAddress $stockAddressEntity
-     * @param \Generated\Shared\Transfer\StockAddressTransfer $stockAddressTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockAddressTransfer
-     */
     public function mapStockAddressEntityToStockAddressTransfer(
         SpyStockAddress $stockAddressEntity,
         StockAddressTransfer $stockAddressTransfer
@@ -60,12 +54,6 @@ class StockAddressMapper
         return $stockAddressTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockAddressTransfer $stockAddressTransfer
-     * @param \Orm\Zed\StockAddress\Persistence\SpyStockAddress $stockAddressEntity
-     *
-     * @return \Orm\Zed\StockAddress\Persistence\SpyStockAddress
-     */
     public function mapStockAddressTransferToStockAddressEntity(
         StockAddressTransfer $stockAddressTransfer,
         SpyStockAddress $stockAddressEntity
@@ -81,23 +69,11 @@ class StockAddressMapper
         return $stockAddressEntity;
     }
 
-    /**
-     * @param \Orm\Zed\Country\Persistence\SpyCountry $countryEntity
-     * @param \Generated\Shared\Transfer\CountryTransfer $countryTransfer
-     *
-     * @return \Generated\Shared\Transfer\CountryTransfer
-     */
     protected function mapCountryEntityToCountryTransfer(SpyCountry $countryEntity, CountryTransfer $countryTransfer): CountryTransfer
     {
         return $countryTransfer->fromArray($countryEntity->toArray(), true);
     }
 
-    /**
-     * @param \Orm\Zed\Country\Persistence\SpyRegion $regionEntity
-     * @param \Generated\Shared\Transfer\RegionTransfer $regionTransfer
-     *
-     * @return \Generated\Shared\Transfer\RegionTransfer
-     */
     protected function mapRegionEntityToRegionTransfer(SpyRegion $regionEntity, RegionTransfer $regionTransfer): RegionTransfer
     {
         return $regionTransfer->fromArray($regionEntity->toArray(), true);

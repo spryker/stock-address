@@ -35,11 +35,6 @@ class StockAddressRepository extends AbstractRepository implements StockAddressR
             ->mapStockAddressEntitiesToStockAddressTransfers($stockAddressEntities, []);
     }
 
-    /**
-     * @param int $idStock
-     *
-     * @return bool
-     */
     public function isStockAddressExistsForStock(int $idStock): bool
     {
         return $this->getFactory()

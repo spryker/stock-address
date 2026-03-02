@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\StockTransfer;
 
 interface StockAddressUpdaterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockResponseTransfer
-     */
     public function updateStockAddressForStock(StockTransfer $stockTransfer): StockResponseTransfer;
 }

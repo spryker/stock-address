@@ -17,11 +17,6 @@ class StockAddressDataHelper extends Module
 {
     use DataCleanupHelperTrait;
 
-    /**
-     * @param array $seedData
-     *
-     * @return \Generated\Shared\Transfer\StockAddressTransfer
-     */
     public function haveStockAddress(array $seedData = []): StockAddressTransfer
     {
         $stockAddressTransfer = (new StockAddressBuilder($seedData))->build();
@@ -34,11 +29,6 @@ class StockAddressDataHelper extends Module
         return $stockAddressTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\StockAddressTransfer $stockAddressTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockAddressTransfer
-     */
     protected function createStockAddress(StockAddressTransfer $stockAddressTransfer): StockAddressTransfer
     {
         $stockAddressEntity = SpyStockAddressQuery::create()
@@ -56,11 +46,6 @@ class StockAddressDataHelper extends Module
         return $stockAddressTransfer->fromArray($stockAddressEntity->toArray(), true);
     }
 
-    /**
-     * @param int $idStockAddress
-     *
-     * @return void
-     */
     protected function cleanupStockAddress(int $idStockAddress): void
     {
         SpyStockAddressQuery::create()

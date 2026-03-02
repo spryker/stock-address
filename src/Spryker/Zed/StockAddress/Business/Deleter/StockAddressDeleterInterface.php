@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\StockTransfer;
 
 interface StockAddressDeleterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\StockTransfer $stockTransfer
-     *
-     * @return \Generated\Shared\Transfer\StockResponseTransfer
-     */
     public function deleteStockAddressForStock(StockTransfer $stockTransfer): StockResponseTransfer;
 }

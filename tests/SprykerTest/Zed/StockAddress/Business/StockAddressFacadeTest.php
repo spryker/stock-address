@@ -41,9 +41,6 @@ class StockAddressFacadeTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandStockCollectionWillExpandStockTransferWithStockAddressTransfer(): void
     {
         // Arrange
@@ -68,9 +65,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertEqualsCanonicalizing($stockAddressTransfer->toArray(), $stockTransfer->getAddress()->toArray());
     }
 
-    /**
-     * @return void
-     */
     public function testExpandStockCollectionWillNotExpandStockTransferWithNoStockAddressRelated(): void
     {
         // Arrange
@@ -88,9 +82,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertNull($stockTransfer->getAddress());
     }
 
-    /**
-     * @return void
-     */
     public function testCreateStockAddressForStockWillCreateStockAddressIfItIsProvided(): void
     {
         // Arrange
@@ -116,9 +107,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertEquals(1, $stockAddressCount);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateStockAddressForStockWillDoNothingIfStockAddressIsNotProvided(): void
     {
         // Arrange
@@ -137,9 +125,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertEquals(0, $stockAddressCount);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateStockAddressForStockWillUpdateStockAddress(): void
     {
         // Arrange
@@ -165,9 +150,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertEqualsCanonicalizing($stockResponseTransfer->getStock()->getAddress()->toArray(), $newStockAddressTransfer->toArray());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateStockAddressForStockWillDoNothingIfStockAddressIsNotProvided(): void
     {
         // Arrange
@@ -183,9 +165,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertEquals(0, $stockAddressCount);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateStockAddressForStockWillRemoveExistingStockAddressIfStockAddressIsNotProvided(): void
     {
         // Arrange
@@ -206,9 +185,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertEquals(0, $stockAddressCount);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateStockWillCreateStockAndStockAddress(): void
     {
         // Arrange
@@ -237,9 +213,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertNotNull($stockAddressEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateStockWillCreateStockAddress(): void
     {
         // Arrange
@@ -266,9 +239,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertNotNull($stockAddressEntity);
     }
 
-    /**
-     * @return void
-     */
     public function testCreateStockWillReturnStockResponseTransferWithUnsuccessfulResultIfStockAddressWasNotCreated(): void
     {
         // Arrange
@@ -287,9 +257,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertFalse($stockResponseTransfer->getIsSuccessful());
     }
 
-    /**
-     * @return void
-     */
     public function testUpdateStockWillReturnStockResponseTransferWithUnsuccessfulResultIfStockAddressWasNotCreated(): void
     {
         // Arrange
@@ -312,17 +279,11 @@ class StockAddressFacadeTest extends Unit
         $this->assertFalse($stockResponseTransfer->getIsSuccessful());
     }
 
-    /**
-     * @return \Spryker\Zed\StockAddress\Business\StockAddressFacadeInterface
-     */
     protected function getStockAddressFacade(): StockAddressFacadeInterface
     {
         return $this->tester->getLocator()->stockAddress()->facade();
     }
 
-    /**
-     * @return \Spryker\Zed\Stock\Business\StockFacadeInterface
-     */
     protected function getStockFacade(): StockFacadeInterface
     {
         return $this->tester->getLocator()->stock()->facade();
@@ -354,9 +315,6 @@ class StockAddressFacadeTest extends Unit
         return $stockPostUpdatePluginMock;
     }
 
-    /**
-     * @return void
-     */
     public function testExpandStockWillExpandStockTransferWithStockAddressTransfer(): void
     {
         // Arrange
@@ -375,9 +333,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertEqualsCanonicalizing($stockAddressTransfer->toArray(), $stockTransfer->getAddress()->toArray());
     }
 
-    /**
-     * @return void
-     */
     public function testStockTransferProductOfferStockExpanderWillNotExpandIfIdStockNotProvided(): void
     {
         // Arrange
@@ -391,9 +346,6 @@ class StockAddressFacadeTest extends Unit
         $this->assertNull($stockTransfer->getAddress());
     }
 
-    /**
-     * @return void
-     */
     public function testStockTransferProductOfferStockExpanderWillNotExpandIfNoStockAddressIsFound(): void
     {
         // Arrange
